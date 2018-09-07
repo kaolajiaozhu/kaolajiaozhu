@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+        #mask {
+            width: 100%;
+            height: 600px;
+            opacity: 0.6;
+            background-color: black;
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            z-index: 998;
+        }
+
+        .mask_img {
+            width: 316px;
+            height: 200px;
+            z-index: 999;
+            position: fixed;
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+<div id="mask" ref="mask" @click="mask()">
+    <img src="../img/HBuilder.png" class="mask_img">
+</div>
+<script src="../js/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#mask",
+        methods: {
+            add: function () {
+                console.log("add");
+                this.$refs.mask.src = "../img/HBuilder.png"; //this.$refs.input1  减少获取dom节点的消耗
+            }
+        },
+        create() {
+            console.log("create")
+            add();
+        }
+    })
+
+    //    this.$refs.mask.style.height = doc.getElementById('mask').clientHeight + 'px'
+</script>
+</body>
+</html>
